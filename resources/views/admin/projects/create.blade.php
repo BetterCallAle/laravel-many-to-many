@@ -29,7 +29,15 @@
                         <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>{{ $type->name }}</option>
                     @endforeach
                 </select>
+            </div>
 
+            <div class="mb-3">
+                @forelse ($technologies as $technology)
+                    <input type="checkbox" id="{{ $technology->slug }}" name="technologies[]" class="form-check-input" value="{{ $technology->id }}">
+                    <label for="{{ $technology->slug }}" class="form-check-label me-3">{{ $technology->name }}</label>
+                @empty
+                    <p>Non ci sono ancora tecnologie da poter selezionare.</p>
+                @endforelse
             </div>
 
             <div class="mb-3">
