@@ -6,6 +6,13 @@
     <div class="container mt-5">
         <h6 class="text-center text-primary">{{ $project->type ? $project->type->name : 'Nessuna tipologia' }}</h6>
         <h2 class="text-center mb-3">{{ $project->title }}</h2>
+        <div class="tags text-center">
+            @forelse ($project->technologies as $technology)
+                <small class="fw-700 mb-3 text-primary ms-1">#{{ $technology->name }}</small>
+            @empty
+                <small class="fw-900 mb-3 text-primary">Non ci sono tecnologie</small>
+            @endforelse
+        </div>
         <div class="d-flex justify-content-between">
             <small>Creato il {{ $project->created_at }}</small>
             <div class="controls">
