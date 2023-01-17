@@ -8,11 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-4">
                 
-                @if (session('message'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('message') }}
-                    </div>
-                @endif
+                @include('partials.message')
 
                 <div class="text-end">
                     <a href="{{ route('admin.types.create') }}" class="btn btn-success ">
@@ -23,6 +19,7 @@
                     <thead>
                       <tr>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Numero di progetti</th>
                         <th scope="col">Azioni</th>
                       </tr>
                     </thead>
@@ -30,6 +27,7 @@
                         @foreach ($types as $type)    
                             <tr>
                                 <th scope="row">{{ $type->name }}</th>
+                                <td class="text-center">{{ $type->projects->count() }}</td>
                                 <td>
                                     <a href="{{ route('admin.types.show', $type->slug) }}" class="btn btn-success">
                                         <i class="fa-solid fa-eye"></i>

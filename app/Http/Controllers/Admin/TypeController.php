@@ -55,8 +55,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        $projects = Type::find($type->id)->projects;;
-        return view('admin.types.show', compact('projects', 'type'));
+        return view('admin.types.show', compact('type'));
     }
 
     /**

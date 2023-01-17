@@ -64,6 +64,13 @@
                         </li>
 
                         <li class="nav-item mb-3">
+                            <a href="{{ route('admin.technologies.index') }}" class="nav-link text-light text-center {{ Route::currentRouteName() === 'admin.technologies.index' ? 'bg-secondary' : '' }}">
+                                <i class="fa-solid fa-code"></i>
+                                Tutte le Tecnologie
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-3">
                             <a href="{{ route('admin.projects.create') }}" class="nav-link text-light text-center {{ Route::currentRouteName() === 'admin.projects.create' ? 'bg-secondary' : '' }}">
                                 <i class="fa-solid fa-plus"></i>
                                 Aggiungi un progetto

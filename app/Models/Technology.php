@@ -10,6 +10,8 @@ class Technology extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug'];
+
     public static function getTheSlug($name){
         return Str::slug($name, '-');
     }

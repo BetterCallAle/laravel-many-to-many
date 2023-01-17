@@ -11,11 +11,7 @@
             </a>
         </div>
 
-        @if (session('message'))
-            <div class="alert alert-success" role="alert">
-                {{ session('message') }}
-            </div>
-        @endif
+        @include('partials.message')
 
         <table class="table">
             <thead>
@@ -54,7 +50,9 @@
                             <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn" button-name="{{ $project->title }}"><i class="fa-solid fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger delete-btn" button-name="{{ $project->title }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </form>
                         </td>
                     </tr>

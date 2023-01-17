@@ -5,20 +5,16 @@
 @section('content')
     <div class="container">
         <div class="wrapper text-center mt-5">
-            <h2 class="mt-3">Tutti i progetti {{ $type->name }}</h2>
-            @if (count($projects) > 0)    
-                <ul class="mt-5">
-                    @foreach ($projects as $project)
-                        <li class="mb-2">
-                            <a href="{{ route('admin.projects.show', $project->slug) }}">
-                                {{ $project->title }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            @else
-                <p class="mt-5">Non ci sono ancora progetti di tipo {{ $type->name }}</p>
-            @endif
+            <h2 class="my-4">Tutti i progetti {{ $type->name }}</h2>
+            <ul>
+                @forelse ($type->projects as $project)
+                    <li class="mb-3">
+                        <a href="{{ route('admin.projects.show', $project->slug) }}">{{ $project->title }}</a>
+                    </li>
+                @empty
+                    <p>Non ci sono ancora progetti di tipo {{ $type->name }}</p>
+                @endforelse
+            </ul>
         </div>
     </div>
 @endsection
