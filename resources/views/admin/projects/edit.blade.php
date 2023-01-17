@@ -31,12 +31,21 @@
 
             <div class="mb-3">
                 <label for="types">Modifica la tipologia del progetto</label>
-                <select name="type_id" id="types" class="form-control w-25">
+                <select name="type_id" id="types" class="form-select w-25">
                     <option value="">Nessuna tipologia</option>
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}" @selected(old('type_id', $project->type?->id) == $type->id)>{{ $type->name }}</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="mb-3">
+                @forelse ($technologies as $technology)
+                    <input type="checkbox" id="{{ $technology->slug }}" name="technologies[]" class="form-check-input" value="{{ $technology->id }}" @checked($project->technologies->contains($technology))>
+                    <label for="{{ $technology->slug }}" class="form-check-label me-3">{{ $technology->name }}</label>
+                @empty
+                    <p>Non ci sono ancora tecnologie da poter selezionare.</p>
+                @endforelse
             </div>
 
             <div class="mb-3">
