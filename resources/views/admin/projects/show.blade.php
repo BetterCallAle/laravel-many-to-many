@@ -20,7 +20,7 @@
         <div class="d-flex justify-content-between">
             <small>Creato il {{ $project->created_at }}</small>
             <div class="controls">
-                <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
+                <a href="{{ url()->previous() }}" class="btn btn-primary">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
 
